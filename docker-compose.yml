@@ -10,15 +10,14 @@ services:
             -   "./backend/:/home/app"
         ports:
             -   "8081:8081"
-        command: "npm run dev"
+        command: "npm run start"
     mysql:
         image: mysql
         restart: always
         command: --default-authentication-plugin=mysql_native_password
         environment:
             MYSQL_ROOT_PASSWORD: nativeip
-        volumes:
-            -   mysql:/var/lib/mysql
+            MYSQL_DATABASE: nativeip
 
 volumes:
     mysql:
