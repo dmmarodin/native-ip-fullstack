@@ -36,7 +36,9 @@ module.exports = {
       title: {
         type: Sequelize.STRING,
         allowNull: false
-      }
+      },
+      createdAt: Sequelize.DATE,
+      updatedAt:Sequelize.DATE
     });
   },
 
