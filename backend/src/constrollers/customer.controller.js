@@ -1,25 +1,50 @@
-const sequelize = require("sequelize");
+const { fn, col, Op } = require("sequelize");
 const customerModel = require("../models/customer.model");
 
-const countCustomersByCity = (req, res) => {
-    customerModel.findAll({
+const countCustomersByCity = async (_, res) => {
+    const cities = await customerModel.findAll({
         attributes: [
             "city",
-            [sequelize.fn('COUNT', sequelize.col('id')), 'customers_total']
+            [fn('COUNT', col('id')), 'customers_total']
         ],
         group: "city"
-    }).then((cities) => {
-        res.send(cities);
-    })
+    });
+
+    res.send(cities);
 }
 
-const customerById = (req, res) => {
-    customerModel.findByPk(req.params.id).then((customer) => {
-        res.send(customer);
-    })
+const customerById = async(req, res) => {
+    const customer = await customerModel.findByPk(req.params.id);
+    res.send(customer);
+}
+
+const customersByCity = async (req, res) => {
+    const customers = await customerModel.findAll({
+        where: {
+            city: {
+                [Op.like]: `%${req.params.city}%`
+            }
+        }
+    });
+
+    res.send(customers);
+}
+
+const updateCustomerById = async (req, res) => {
+    const data = req.body;
+
+    const result = await customerModel.update(data, {
+        where: {
+            id: req.params.id
+        }
+    });
+
+    res.send(result);
 }
 
 module.exports = {
     countCustomersByCity,
-    customerById
+    customerById,
+    customersByCity,
+    updateCustomerById
 }
