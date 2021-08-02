@@ -1,0 +1,19 @@
+@import "../../styles/variables.scss";
+
+.customer-table {
+    width: 100%;
+    border-spacing: 0;
+    text-align: left;
+    border-collapse: collapse;
+    table-layout: auto;
+    box-sizing: border-box;
+
+    th {
+        padding: 10px 25px;
+        border-bottom: 1px solid $light-gray;
+    }
+
+    td {
+        padding: 15px 25px;
+    }
+}

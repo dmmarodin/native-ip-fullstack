@@ -1,0 +1,44 @@
+@import "../../styles/variables.scss";
+
+.city-listing {
+    list-style: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+    height: 100%;
+
+    .card {
+        height: 100%;
+    }
+
+    .city-listing_title {
+        color: $green;
+        font-weight: 900;
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .city-listing_value {
+        width: fit-content;
+        margin: auto;
+    }
+
+    .city-listing_customers {
+        font-weight: 900;
+        font-size: 1.7rem;
+        display: inline-block;
+    }
+
+    .city_listing_customerTitle {
+        display: inline-block;
+        vertical-align: super;
+        font-weight: bold;
+        font-size: 1.1rem;
+        line-height: 1.7rem;
+        margin-left: 10px;
+        color: $gray;
+    }
+
+    &:hover {
+        transform: scale(1.05);
+    }
+}

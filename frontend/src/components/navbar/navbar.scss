@@ -1,0 +1,11 @@
+@import "../../styles/variables.scss";
+
+.navbar {
+    a {
+        color: $green;
+        font-weight: 600;
+        padding: 0px 20px;
+        font-size: 0.9rem;
+        letter-spacing: 0.12rem;
+    }
+}

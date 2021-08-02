@@ -1,0 +1,10 @@
+@import "../../../styles/variables.scss";
+
+.button {
+    background-color: $green;
+    padding: 10px 30px;
+    border: none;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}

@@ -1,0 +1,12 @@
+@import "../../styles/variables.scss";
+
+.customer-listing {
+    .customer-listing_name {
+        font-weight: 600;
+    }
+
+    .customer-listing_edit a {
+        color: $green;
+        font-weight: 600;
+    }
+}
