@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getCities } from "../../services/requestData";
+import socket from "../../services/socketIo";
 import CityListing from "../citiesListing/cityListing";
 import "./cityList.scss";
 
@@ -13,6 +14,10 @@ const CityList = () => {
         }
         fetchData();
     }, []);
+
+    socket.on("customerUpdate", (val) => {
+        console.log(val)
+    })
 
     return (
         <ul className="city-list">

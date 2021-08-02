@@ -1,4 +1,4 @@
-import { Route, Switch } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 import NavBar from "./components/navbar/navbar";
 import Dashboard from "./pages/dashboard";
