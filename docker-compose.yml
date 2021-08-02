@@ -1,8 +1,16 @@
 version: "3"
 
 services:
+    frontend:
+        build: ./frontend
+        working_dir: /home/app
+        # volumes:
+            # -   "./frontend/:/home/app"
+        ports:
+            -   "3000:3000"
+        command: "npm run start"
     backend:
-        image: node:16-alpine
+        build: ./backend
         working_dir: /home/app
         env_file:
             - "./backend/.env"
