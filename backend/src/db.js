@@ -1,8 +1,8 @@
 const { Sequelize } = require('sequelize');
 
-const conn = new Sequelize('nativeip', 'root', 'nativeip', {
+const conn = new Sequelize(process.env.DB_DATABASE, process.env.DB_USERNAME, process.env.DB_PASSWORD, {
     dialect: "mysql",
-    host: 'mysql'
+    host: process.env.DB_HOST
 });
 
 module.exports = conn;
