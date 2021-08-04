@@ -28,7 +28,6 @@ module.exports = {
   },
 
   async updateCustomer(id, data) {
-      console.log(id)
     const result = await customerModel.update(data, {
         where: {
             id: id
