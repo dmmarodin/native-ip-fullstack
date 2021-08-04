@@ -2,10 +2,10 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "src/server.js",
+  "main": "index.js",
   "scripts": {
-    "migrate": "NODE_ENV=development ./node_modules/.bin/wait-port -t 50000 mysql:3306 && npx sequelize db:migrate --migrations-path './src/migrations' && npx sequelize db:seed:undo:all --seeders-path './src/seeders' && npx sequelize db:seed:all --seeders-path './src/seeders'",
-    "start": "npm run migrate && nodemon --legacy-watch"
+    "dev": "nodemon src/server.js --legacy-watch",
+    "start": "node src/server.js"
   },
   "author": "",
   "license": "ISC",
