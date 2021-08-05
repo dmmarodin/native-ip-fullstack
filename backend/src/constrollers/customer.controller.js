@@ -65,8 +65,6 @@ const updateCustomerById = async (req, res) => {
     }
 
     if(!data.first_name || !data.last_name || !data.email || !data.city) {
-        console.log("aaaaa===")
-        console.log(data)
         res.status(400).send({ message: "primeiro nome, segundo nome, email e cidade são obrigatórios." });
         return;
     }
@@ -84,9 +82,9 @@ const updateCustomerById = async (req, res) => {
         }
 
         if(result == true) {
-            res.status(200).send({ message: "cliente atualizado com sucesso. "});
+            res.status(200).send({ message: "cliente atualizado com sucesso." });
         } else {
-            res.status(404).send({ message: "cliente não encontrado. "});
+            res.status(404).send({ message: "cliente não encontrado." });
         }
     } catch (e) {
         res.status(500).send({
