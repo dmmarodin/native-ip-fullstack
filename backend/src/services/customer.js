@@ -7,15 +7,18 @@ module.exports = {
       attributes: ["city", [fn("COUNT", col("id")), "customers_total"]],
       order: [[literal("customers_total"), "DESC"], ["city", "ASC"]],
       group: "city",
+      raw: true
     });
 
-    return customers;
+    return customers ?? [];
   },
 
   async getCustomerById(id) {
-    return await customerModel.findByPk(id, {
+    const customer = await customerModel.findByPk(id, {
       attributes: { exclude: ["createdAt", "updatedAt"] }
     });
+
+    return customer ?? {};
   },
 
   async getCustomersByCity(city) {
@@ -26,10 +29,11 @@ module.exports = {
                 [Op.like]: `%${city}%`
             }
         },
-        order: [["first_name", "ASC"]]
+        order: [["first_name", "ASC"]],
+        raw: true
     });
 
-    return customers;
+    return customers ?? [];
   },
 
   async updateCustomer(id, data) {
@@ -39,6 +43,6 @@ module.exports = {
         }
     });
 
-    return result;
+    return (result[0] === 1) ? true : false;
   }
 };
